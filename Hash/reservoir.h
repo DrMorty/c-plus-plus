@@ -46,7 +46,6 @@ void Storage::readDataBase()
         {
             tmp_str += str[0];
             tmp_str += str[1];
-            //std::cout << tmp_str <<std::endl;
             tmp_hash = comp_hash(tmp_str);
             tmp_str = "";
             hash = comp_hash(str);
