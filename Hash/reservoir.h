@@ -1,6 +1,6 @@
 #pragma once
-#ifndef STORAGE_H_
-#define STORAGE_H_
+#ifndef RESERVOIR_H_
+#define RESERVOIR_H_
 #include <string>
 #include <cstdlib>
 #include <list>
