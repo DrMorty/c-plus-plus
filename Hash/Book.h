@@ -4,34 +4,15 @@
 #include <string>
 #include <fstream>
 
-struct Book
+template<typename T>
+class Book
 {
-    std::string name;
-    void loadBook();
-    std::string data;
-    Book(){
-    this->data = "Empty";
-    }
-    ~List();
+     std::string data;
+    ~Book();
 }; 
-
-void Book::loadBook()
+Book(T)::~Book
 {
-    std::ifstream book_data(this->name);
-    std::string Big_data = "";
-    
-    while(book_data)
-    {
-        std::string str;
-        std::getline(book_data, str);
-        if (str != "") 
-        {
-            Big_data += str;
-            Big_data += "\n";
-        }
-    }
-    this->data = Big_data;
+	clear();
 }
-
 
 #endif
