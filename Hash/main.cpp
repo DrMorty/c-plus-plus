@@ -10,15 +10,16 @@
 #include <vector>           
 #include <sstream>          
 #include <algorithm>    
-#include "reservoir.h"
+#include "stream.h"
 #include <list>
-#include <iterator>
+
 
 int main()
 {
     Storage stor;
-    stor.setHashValue();
-    stor.readDataBase();
-    stor.readBook();
+    readDataBase("lib", &stor);
+    stor.print();
+    stor.remove("Наполеон");
+    saveDataBase("lib", &stor);
     return 0;
 }
