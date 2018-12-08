@@ -1,29 +1,28 @@
 #pragma once
-#ifndef HASH_H_
-#define HASH_H_
+
 #include <string>
+#include <vector>
+#include <list>
+
+
 std::string itos(int n)
 {
-   const int max_size = std::numeric_limits<int>::digits10 ;
+   const int max_size = std::numeric_limits<int>::digits10 + 2/;
    char buffer[max_size] = {0};
    sprintf(buffer, "%d", n);
    return std::string(buffer);
 }
 
-std::string comp_hash(std::string book_name)
+template <class Type>
+int comp_hash(Type data)
 {
-    std::string hash = "";
-    float elem_1 = 0;
-    for (int i =0; i < book_name.length(); i++)
+    long long int sum = 0;
+    for (int i = 0; i < data.length(); i++)
     {
-        elem_1 = pow((int)(book_name[i]), 3);
-        elem_1 = sqrt(elem_1);
-        elem_1 = (int) elem_1;
-        elem_1 = (elem_1 - 13) - (int)(book_name[i]) % 10;
-        hash += itos(elem_1);
-        
-    } 
-    return hash;   
+        sum += pow((int)(data[i])+ pow(i,2), 1.5);
+        sum -= 66;  
+    }
+    
+    return (int)sum;
+   
 } 
-
-#endif
