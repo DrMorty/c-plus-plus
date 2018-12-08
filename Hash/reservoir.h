@@ -2,7 +2,8 @@
 #include <string>
 #include <cstdlib>
 #include <list>
-#include "book.h"
+#include "Book.h"
+#include "Hash.h"
 class Storage
 {
     int cell_count = 400;
@@ -28,9 +29,22 @@ void Storage::print()
         }
     }
 }
+void Storage::appendString(std::string data)
+{
+    
+    int index = abs((int)(comp_hash(data) % cell_count));
+    storage[index].push_back(data); 
+    
+}
+
+void Storage::remove(std::string data)
+{
+    int index = abs((int)(comp_hash(data) % cell_count));
+    std::remove(storgae[index]
+}
 
 
-std::string Storage::find(std::string data)
+std::string Storage::findCell(std::string data)
 {
     int index = abs((int)(comp_hash(data) % cell_count));
     std::list<Book>::iterator iter_1;
