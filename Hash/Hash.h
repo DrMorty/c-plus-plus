@@ -2,6 +2,13 @@
 #ifndef HASH_H_
 #define HASH_H_
 #include <string>
+std::string itos(int n)
+{
+   const int max_size = std::numeric_limits<int>::digits10 ;
+   char buffer[max_size] = {0};
+   sprintf(buffer, "%d", n);
+   return std::string(buffer);
+}
 
 std::string comp_hash(std::string book_name)
 {
