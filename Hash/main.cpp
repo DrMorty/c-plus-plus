@@ -20,6 +20,5 @@ int main()
     stor.setHashValue();
     stor.readDataBase();
     stor.readBook();
-    stor.printCells();
     return 0;
 }
