@@ -80,13 +80,22 @@ int Storage::findCell(std::string book_name)
         {
             index = i;
             return index;
-        }
-        
+        }  
     }
     
 }
-
-
+void printCells(std::string book_name);
+{
+    std::string tmp_book_hash = "";
+    tmp_book_hash += book_name[0];
+    tmp_book_hash += book_name[1];
+    tmp_book_hash = comp_hash(tmp_book_hash);
+    int index = -1;
+    for (int i = 0; i< 3333; i++)
+    {
+            std::cout << storage[i].hash << std::endl;
+    }
+}
 
 void Storage::readBook()
 {
