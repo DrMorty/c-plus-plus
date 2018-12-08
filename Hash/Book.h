@@ -12,6 +12,7 @@ struct Book
     Book(){
     this->data = "Empty";
     }
+    ~List();
 }; 
 
 void Book::loadBook()
