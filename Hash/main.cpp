@@ -21,5 +21,6 @@ int main()
     stor.print();
     stor.remove("Наполеон");
     saveDataBase("lib", &stor);
+    findCell("Россией");
     return 0;
 }
