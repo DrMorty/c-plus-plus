@@ -4,7 +4,7 @@
 #include <string>
 #include <fstream>
 
-template<typename Type>
+template<class Type>
 class Book
 {
      std::string data;
