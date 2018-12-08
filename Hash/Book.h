@@ -8,7 +8,10 @@ struct Book
 {
     std::string name;
     void loadBook();
-    std::string data = "Empty";
+    std::string data;
+    Book(){
+    this->data = "Empty";
+    }
 }; 
 
 void Book::loadBook()
@@ -28,5 +31,6 @@ void Book::loadBook()
     }
     this->data = Big_data;
 }
+
 
 #endif
