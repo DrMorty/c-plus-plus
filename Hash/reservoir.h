@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <list>
 #include "Book.h"
-
+#include "Hash.h"
 struct cell
 {
     std::string hash = "";  
