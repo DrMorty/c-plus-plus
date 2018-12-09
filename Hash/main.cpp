@@ -9,14 +9,16 @@
 #include <cstring>
 #include <vector>           
 #include <sstream>          
-#include <algorithm>    
-#include "stream.h"
+#include <algorithm>  
 #include <list>
+#include "stream.h"
+#include "reservoir.h"
+#include "Hash.h"
 
 
 int main()
 {
-    Storage stor;
+    Storage<std::string> stor_1(333);
     readDataBase("lib", &stor);
     stor.print();
     stor.remove("Наполеон");
