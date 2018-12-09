@@ -2,17 +2,40 @@
 #include <string>
 #include <cstdlib>
 #include <list>
-#include "Book.h"
+#include <iostream>
 #include "Hash.h"
+#include <iterator>
+
+template <typename Type>
 class Storage
 {
-    int cell_count = 400;
-    std::list<Book>* storage = new std::list<Book> [400];
+     Storage (int number);
+    ~Storage ();
+    int cell_count;
+    std::list<Type>** storage;
     int findCell(std::string book_name);
     void removeString(std::string data);
     void appendString(std::string data);
     void print();
 }
+
+template <typename Type>
+Storage<Type>::Storage (int number)
+{
+    cell_count = number;
+    storage = new std::list<Type>*[number];
+}
+
+template <typename Type>
+Storage<Type>::~Storage()
+{
+    for (int i = 0; i < cell_count; i++)
+    {
+        storage[i]->clear();
+    }
+    delete[]storage;
+}
+
 void Storage::print()
 {
     std::list<Book>::iterator iter_1;
@@ -31,10 +54,8 @@ void Storage::print()
 }
 void Storage::appendString(std::string data)
 {
-    
     int index = abs((int)(comp_hash(data) % cell_count));
     storage[index].push_back(data); 
-    
 }
 
 void Storage::remove(std::string data)
@@ -57,5 +78,20 @@ std::string Storage::findCell(std::string data)
         }
     }
 }
-
+template <typename Type>
+void Storage<Type>::remove(Type data)
+{
+    
+    int index = abs((int)(comp_hash(data) % cell_count));
+    auto it = std::find(storage[index]->begin(), storage[index]->end(), data);
+    if (it != storage[index]->end())
+    {
+        storage[index]->erase(it);
+        std::cout << "Data has been removed" << std::endl;
+    }
+    else
+    {
+        std::cout << "Error" << std::endl;
+    }
+}
 #endif
